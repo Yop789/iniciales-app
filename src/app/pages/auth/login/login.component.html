@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-4">
+            <div class="shadow p-3 mb-5 bg-body rounded-3">
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()" >
+                    <div class="form-floating mb-3">
+                        <input type="text"
+                            [ngClass]="baseForm.isvalidField(loginForm.get('username')) ? 'form-control is-invalid' : 'form-control'"
+                            placeholder=" " formControlName="username">
+                        <label>Usuario</label>
+                        <div class="invalid-feedback">
+                            {{baseForm.getErrorMessage(loginForm.get('username'))}}
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password"
+                            [ngClass]="baseForm.isvalidField(loginForm.get('password')) ? 'form-control is-invalid' : 'form-control'"
+                            placeholder=" " formControlName="password">
+                        <label>Contraseña</label>
+                        <div class="invalid-feedback">
+                            {{ baseForm.getErrorMessage(loginForm.get('password')) }}
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary" [disabled]="this. loginForm. invalid">iniciar
+                            Sesién</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
